@@ -5,14 +5,14 @@ var LocalStrategy = require("passport-local").Strategy
 var User = require("../../models/user")
 
 var localOptions = {
-    usernameField: 'email',
+    usernameField: 'name',
 }
 
 passport.use(new LocalStrategy(localOptions, function (username, password, done) {
     
         User.findOne({
             $or:[
-                {email: username}
+                {name: username}
             ]
             }, function(err, user){
 
