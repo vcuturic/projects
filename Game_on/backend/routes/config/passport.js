@@ -12,7 +12,7 @@ passport.use(new LocalStrategy(localOptions, function (username, password, done)
     
         User.findOne({
             $or:[
-                {name: username}
+                {name: username} 
             ]
             }, function(err, user){
 

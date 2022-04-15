@@ -26,7 +26,7 @@ router.post("/register", (req, res) =>{
 })
 router.post("/login", passport.authenticate("local", {session: false}), async (req, res) =>{
     // console.log(req.user)
-    var user = await User.findOne({name: req.body.name})
+    var user = await User.findOne({name: req.body.name}) 
     var token = user.generateJwt()
     res.status(200).json(token);
 })
