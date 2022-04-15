@@ -1,0 +1,46 @@
+<div *ngIf="game">
+<div class="bg-dark text-light">
+    <!-- WELCOME text -->
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">{{game.title}}</h1>
+        </div>
+        <hr>
+    </div>  
+    <!-- VIDEO -->
+    <div class="container">
+        <div class="row text-center" style="border: 1px solid blue;">
+            <div class="col-md">
+                <h4>GAMEPLAY:</h4>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://cdn.cloudflare.steamstatic.com/steam/apps/256717563/movie480.webm?t=1605604934" allowfullscreen></iframe>
+                </div>
+            </div> 
+            <div class="col-md">
+                {{game.small_about}}
+            </div>
+        </div>
+        <div class="row text-center" style="border: 1px solid red;">
+            <div class="col-md">
+                <h4>About the game:</h4>
+                {{game.about}}
+            </div> 
+            <div class="col-md">
+                {{game.about}}
+            </div>
+        </div>
+        <div class="row text-center" style="border: 1px solid red;">
+            <h4>{{game.author}}</h4>
+            
+        </div>
+    </div>
+    
+    
+    
+    {{game.yearOfPublication}} 
+    
+    
+
+</div>
+</div>
+

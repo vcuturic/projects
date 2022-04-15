@@ -1,0 +1,11 @@
+<div class="row">
+<div class="col-xs-12 col-sm-6 col-md-3 item p-1" *ngFor='let game of games' (click)="selectGame(game)" >
+    <!-- <div class=""> -->
+        {{game.title}}<br>
+    <img [src]="game.cover" alt="..." class="img-thumbnail gamecover"/>
+    <!-- </div> -->
+    
+</div>
+</div>
+
+<!-- <router-outlet></router-outlet> -->

@@ -1,6 +1,6 @@
 var express = require("express")
 var User = require("../models/user")
-var passport = require("../config/passport")
+var passport = require("./config/passport")
 // require("../config/passport")
 
 var router = express.Router()

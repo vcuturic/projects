@@ -2,7 +2,7 @@ var passport = require("passport")
 var ExtractJwt = require("passport-jwt").ExtractJwt
 var JwtStrategy = require("passport-jwt").Strategy
 var LocalStrategy = require("passport-local").Strategy
-var User = require("../models/user")
+var User = require("../../models/user")
 
 var localOptions = {
     usernameField: 'email',

@@ -1,0 +1,21 @@
+<div class="row justify-content-md-center">
+<div class="col-md-4 mpage bg-light p-4 m-2" align="center" style="border-radius: 5px 5px;">
+    <h4>Login</h4>
+    <hr>
+    <!-- EMAIL -->
+    <div class="form-group">
+        <label for="inptEmail">Email address</label>
+        <input [(ngModel)]="username" type="email" class="form-control" id="inptEmail" placeholder="name@example.com">
+    </div><br>
+    <!-- PASSWORD -->
+    <div class="form-group">
+        <label for="inptPassword">Password</label>
+        <input type="password" [(ngModel)]="password" class="form-control" id="inptPassword" placeholder="Password">
+    </div>
+    <!-- <input type="text" [(ngModel)]="username"> -->
+    <!-- <input type="password" [(ngModel)]="password"> -->
+    <br>
+    <button class="btn btn-success" (click)="login()">Prijavi se</button>
+    <br/><br/>
+</div>
+</div>

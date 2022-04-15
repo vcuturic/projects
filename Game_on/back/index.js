@@ -1,10 +1,10 @@
 var express = require("express")
 var config = require("./config")
 var cors = require('cors')
-var bookRoutes = require("./routes/books")
+var gameRoutes = require('./routes/games')
 var authRoutes = require("./routes/auth")
 
-var passport = require("./config/passport")
+var passport = require("./routes/config/passport")
 // require("./config/passport")
 
 var app = express();
@@ -27,7 +27,7 @@ app.use((err,req, res, next) => {
     res.status(500).send("There was an error")
 })
 
-app.use("/books", bookRoutes);
+app.use("/games", gameRoutes);
 app.use("/auth", authRoutes);
 
 app.get('/', (req, res) => {
