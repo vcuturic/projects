@@ -1,0 +1,23 @@
+body { background-color: #F0EFEF }
+.container {margin-top: 1%;}
+#logo1{ color: black; }
+#logo2{ color:#3C9AF1; }
+.mpage { margin-left: 1%;}
+/* navbar */
+.navMyActive { font-weight: bold; color: black; background-color: #F0EFEF; }
+.nav-item:hover { background-color: #F0EFEF; }
+.nav-item { padding-bottom: 1%; }
+
+<apex:pageBlock title="Add Work day item" rendered="{!section1}" >
+                        OLA AMIGO {!section1} {!projects}
+                    </apex:pageBlock>
+                    <apex:pageBlock title="Add Work day item" >
+                        <!-- <apex:pageMessages rendered="{!section1}"/> -->
+                        <apex:pageBlockSection columns="1" rendered="{!section1}">
+                                    <apex:outputField value="{! wdItem.Day__c }"></apex:outputField>
+                                    <apex:outputField value="{! wdItem.Date__c }"></apex:outputField>
+                                    <apex:inputField value="{! wdItem.Project__c }"></apex:inputField> 
+                                    <apex:inputField value="{! wdItem.MyTask__c }"></apex:inputField>
+                                    <apex:inputField value="{! wdItem.Hours__c }"></apex:inputField>
+                        </apex:pageBlockSection>
+                    </apex:pageBlock>
