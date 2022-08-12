@@ -1,0 +1,12 @@
+@use '@angular/material' as mat;
+
+$my-palette: mat.$purple-palette;
+
+.mynav{
+  font-weight: bolder;
+  position: relative;
+  background-color: mat.get-color-from-palette($my-palette, 500) !important;
+  align-items: center;
+}
+
+

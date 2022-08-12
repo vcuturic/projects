@@ -1,11 +1,10 @@
 <div class="row">
-<div class="col-xs-12 col-sm-6 col-md-3 item p-1" *ngFor='let game of games' (click)="selectGame(game)" >
-    <!-- <div class=""> -->
-        {{game.title}}<br>
-    <img [src]="game.cover" alt="..." class="img-thumbnail gamecover"/>
-    <!-- </div> -->
-    
+<div class="col-xs-12 col-sm-6 col-md-3 p-2" *ngFor='let game of games' (click)="selectGame(game)">
+    <mat-card class="gameOnCard item">
+      <mat-card-header class="gameOnCardHeader">
+          <mat-card-title class="gameOnCardTitle">{{game.title}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="game.cover" alt="..." class="gamecover">
+    </mat-card>
 </div>
 </div>
-
-<!-- <router-outlet></router-outlet> -->

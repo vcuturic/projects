@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AngularMaterialsModule } from './angular-materials.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,12 +10,12 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { HeaderComponent } from './header/header.component';
 import { GamesComponent } from './games/games.component';
 import { GameComponent } from './game/game.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -32,9 +33,11 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
+    AngularMaterialsModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

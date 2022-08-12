@@ -1,18 +1,11 @@
-body { 
+body {
     background-color: #000 !important;;
     background-image: url('/assets/images/bright-squares.png');
 }
 .row{ --bs-gutter-x: 0 !important;; } /*fixes unnecessary horizontal scrolling*/
-.item:hover{ background-color: #000;  opacity: 0.9; cursor: pointer; border-radius: 10px 10px;}
-.mynav{
-    font-weight: bolder;
-    /* border-bottom: 0.5px solid #cfcfcf; */
-    background-color: #000;  opacity: 0.5;
-    position: relative; 
-    z-index: 1;
-}
+
 .myheadertext{
-    position: relative; 
+    position: relative;
     top: 25%;
     z-index: 1;
 }
@@ -26,8 +19,7 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     z-index: initial;
 }
-.gamecover{
-    width: 150px;
-    height: 250px;
-}
+
 .footer { color: white; background-color: black; opacity: 0.8; }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

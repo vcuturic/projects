@@ -1,0 +1,26 @@
+.gameOnCard{
+  border-radius: 0px;
+  padding-bottom: 0px;
+}
+
+.gameOnCardHeader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.gameOnCardTitle{
+  font-size: 15px;
+}
+
+.gamecover{
+  height: 18rem;
+}
+
+.item:hover{
+  background-color: #000;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
