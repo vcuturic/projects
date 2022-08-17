@@ -1,21 +1,24 @@
-<div class="row justify-content-md-center">
-<div class="col-md-4 mpage bg-light p-4 m-2" align="center" style="border-radius: 5px 5px;">
-    <h4>Login</h4>
-    <hr>
-    <!-- EMAIL -->
-    <div class="form-group">
-        <label for="inptEmail">Email address</label>
-        <input [(ngModel)]="username" type="email" class="form-control" id="inptEmail" placeholder="name@example.com">
-    </div><br>
-    <!-- PASSWORD -->
-    <div class="form-group">
-        <label for="inptPassword">Password</label>
-        <input type="password" [(ngModel)]="password" class="form-control" id="inptPassword" placeholder="Password">
+<div class="d-flex row justify-content-md-center text-light h-100 align-items-center">
+<div class="col-md-3 bg-dark p-4 m-2 gameOnLoginForm text-center">
+  <app-logo></app-logo>
+  <h2 class="p-2">Login</h2>
+  <form [formGroup]="loginForm">
+    <div class="example-container">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName="email" required>
+        <mat-error *ngIf="loginForm.get('email')!.errors">Not a valid Email address.</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid" (click)="login()">Login</button>
     </div>
-    <!-- <input type="text" [(ngModel)]="username"> -->
-    <!-- <input type="password" [(ngModel)]="password"> -->
-    <br>
-    <button class="btn btn-success" (click)="login()">Prijavi se</button>
-    <br/><br/>
+  </form>
 </div>
 </div>

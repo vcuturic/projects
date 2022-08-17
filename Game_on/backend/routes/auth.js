@@ -10,8 +10,6 @@ router.post("/register", (req, res) =>{
     user.name = req.body.name;
     user.email = req.body.email;
     user.setPassword(req.body.password)
-    console.log(user)
-    console.log(req.body)
 
     user.save((err) => {
         if(!err){
@@ -25,7 +23,6 @@ router.post("/register", (req, res) =>{
 
 })
 router.post("/login", passport.authenticate("local", {session: false}), async (req, res) =>{
-    // console.log(req.user)
     var user = await User.findOne({email: req.body.email}) 
     var token = user.generateJwt()
     res.status(200).json(token);

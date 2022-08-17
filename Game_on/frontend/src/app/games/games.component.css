@@ -8,10 +8,14 @@
   justify-content: center;
   align-items: center;
   white-space: nowrap;
+  overflow: hidden;
+  display: block;
 }
 
 .gameOnCardTitle{
   font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .gamecover{

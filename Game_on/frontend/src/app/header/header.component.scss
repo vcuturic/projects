@@ -2,11 +2,26 @@
 
 $my-palette: mat.$purple-palette;
 
-.mynav{
-  font-weight: bolder;
-  position: relative;
+.navBar {
   background-color: mat.get-color-from-palette($my-palette, 500) !important;
+}
+
+.navItems{
+  font-weight: bolder;
   align-items: center;
+  width: 80%;
+}
+
+.activeRoute {
+  text-decoration: none;
+  color: white;
+  background: rgba(black, 0.2);
+  font-weight: bold;
+}
+
+.gameOnRoute:hover {
+  color: white;
+  // background-color: rgba(black, 0.5);
 }
 
 

@@ -1,0 +1,8 @@
+.gameOnBaner{
+  display: block;
+  height: 30vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  filter: blur(2px);
+}

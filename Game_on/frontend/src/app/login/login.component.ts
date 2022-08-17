@@ -1,30 +1,37 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { LibraryService } from '../library-service/library.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
-  username?: string;
-  password?: string;
-  constructor(private library: LibraryService, private cookie: CookieService, private router: Router) { }
+  hidePassword = true;
+
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl()
+  });
+
+  constructor(
+    private cookie: CookieService,
+    private router: Router,
+    private aithService: AuthService
+    ) { }
 
   ngOnInit(): void {
   }
 
   login()
   {
-    this.library.login(this.username, this.password).subscribe(token=>{
-      console.log(token)
+    this.aithService.login(this.loginForm.value).subscribe(token=>{
       this.cookie.set("token", token);
-      
       this.router.navigate(['/games'])
     })
   }
-
 }

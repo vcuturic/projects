@@ -8,11 +8,11 @@ var localOptions = {
     usernameField: 'email',
 }
 
-passport.use(new LocalStrategy(localOptions, function (username, password, done) {
+passport.use(new LocalStrategy(localOptions, function (email, password, done) {
     
         User.findOne({
             $or:[
-                {email: username} 
+                {email: email} 
             ]
             }, function(err, user){
 

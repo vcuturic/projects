@@ -1,0 +1,14 @@
+@use '@angular/material' as mat;
+
+$my-palette: mat.$purple-palette;
+$purple: mat.get-color-from-palette($my-palette, 500);
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.gameOnLoginForm{
+  border: 2px solid $purple !important;
+}
+

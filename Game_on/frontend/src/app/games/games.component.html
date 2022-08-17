@@ -2,9 +2,9 @@
 <div class="col-xs-12 col-sm-6 col-md-3 p-2" *ngFor='let game of games' (click)="selectGame(game)">
     <mat-card class="gameOnCard item">
       <mat-card-header class="gameOnCardHeader">
-          <mat-card-title class="gameOnCardTitle">{{game.title}}</mat-card-title>
+          <mat-card-title class="gameOnCardTitle">{{game.name}}</mat-card-title>
       </mat-card-header>
-      <img mat-card-image [src]="game.cover" alt="..." class="gamecover">
+      <img *ngIf="game.cover && gameCovers" mat-card-image [src]="gamesService.getGameCoverByIdFromList(game.cover, gameCovers)" alt="..." class="gamecover"/>
     </mat-card>
 </div>
 </div>
