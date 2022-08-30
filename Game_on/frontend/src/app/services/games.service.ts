@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -12,12 +12,22 @@ export class GamesService {
 
   constructor(private http: HttpClient) { }
 
-  getGames(): Observable<any> {
-    return this.http.get<any>(this.url);
+  getGames(offset: number, limit: number, searchValue?: string): Observable<any> {
+    var params = new HttpParams()
+    .set("offset", offset)
+    .set("limit", limit);
+
+    if(searchValue){
+      params = params.set("search", searchValue);
+    }
+
+    return this.http.get<any>(this.url, {params});
   }
 
   getCoversForGames(games: any): Observable<any>{
-    return this.http.post<any>(`${this.url}/covers`, games);
+    var params = new HttpParams()
+    .set("limit", games.length);
+    return this.http.post<any>(`${this.url}/covers`, games, {params});
   }
 
   getGameById(id: number): Observable<any> {
@@ -30,6 +40,14 @@ export class GamesService {
 
   getCoverByGameId(gameId: number): Observable<any> {
     return this.http.get<any>(`${this.url}/game/${gameId}/cover`);
+  }
+
+  getGameGenres(genres: any): Observable<any> {
+    return this.http.post<any>(`${this.url}/genres`, genres);
+  }
+
+  getGamePlatforms(platforms: any): Observable<any> {
+    return this.http.post<any>(`${this.url}/platforms`, platforms);
   }
 
   getGameCoverByIdFromList(coverId: number, gameCovers: any): string{

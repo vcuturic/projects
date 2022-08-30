@@ -18,6 +18,10 @@
       </mat-form-field>
       <br>
       <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid" (click)="login()">Login</button>
+      <hr>
+      <a routerLink="/register" routerLinkActive="activeRoute" ariaCurrentWhenActive="page">
+        <button  mat-raised-button color="accent" >Create new account</button>
+      </a>
     </div>
   </form>
 </div>

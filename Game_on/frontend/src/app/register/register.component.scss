@@ -1,0 +1,14 @@
+@use '@angular/material' as mat;
+
+$my-palette: mat.$green-palette;
+$accent: mat.get-color-from-palette($my-palette, A200);
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.gameOnRegisterForm{
+  border: 2px solid $accent !important;
+}
+

@@ -1,7 +1,6 @@
 var express = require("express")
 var User = require("../models/user")
 var passport = require("./config/passport")
-// require("../config/passport")
 
 var router = express.Router()
 
@@ -20,13 +19,14 @@ router.post("/register", (req, res) =>{
             })
         }
     })
-
 })
+
 router.post("/login", passport.authenticate("local", {session: false}), async (req, res) =>{
     var user = await User.findOne({email: req.body.email}) 
     var token = user.generateJwt()
     res.status(200).json(token);
 })
+
 router.get("/", 
     passport.authenticate('jwt',{session:false}), 
     async (req, res) =>{

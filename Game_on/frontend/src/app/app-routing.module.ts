@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '',
@@ -20,6 +21,7 @@ const routes: Routes = [
   },
   { path: 'users', component: UsersComponent,canActivate: [AuthGuardService],},
   { path: 'login', component: LoginComponent, canActivate: [NoAuthGuardService],},
+  { path: 'register', component: RegisterComponent, canActivate: [NoAuthGuardService],},
   { path: '', redirectTo: '/games', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent}
 ];

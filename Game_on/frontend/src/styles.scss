@@ -1,5 +1,7 @@
+$gray-900: #232429;
+
 body {
-    background-color: #000 !important;;
+    background-color: #000 !important;
     background-image: url('/assets/images/bright-squares.png');
 }
 .row{ --bs-gutter-x: 0 !important;; } /*fixes unnecessary horizontal scrolling*/

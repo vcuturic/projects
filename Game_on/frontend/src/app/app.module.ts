@@ -17,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LogoComponent } from './components/logo/logo.component';
+import { ImageSlideshowComponent } from './components/image-slideshow/image-slideshow.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LogoComponent } from './components/logo/logo.component';
     GameComponent,
     HomeComponent,
     FooterComponent,
-    LogoComponent
+    LogoComponent,
+    ImageSlideshowComponent
   ],
   imports: [
     BrowserModule,

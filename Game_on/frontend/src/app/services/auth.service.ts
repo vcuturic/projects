@@ -21,9 +21,12 @@ export class AuthService {
     private router: Router
   ) { }
 
-  login(loginInfo: any): Observable<any>
-  {
+  login(loginInfo: any): Observable<any> {
     return this.http.post<any>(`${this.url}/login`, loginInfo);
+  }
+
+  register(registerInfo: any): Observable<any> {
+    return this.http.post<any>(`${this.url}/register`, registerInfo);
   }
 
   isAuthenticated(): boolean
@@ -39,6 +42,5 @@ export class AuthService {
   logout() {
     this.cookie.delete('token');
     this.router.navigate(['login']);
-
   }
 }

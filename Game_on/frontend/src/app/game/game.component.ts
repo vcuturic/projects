@@ -13,6 +13,8 @@ export class GameComponent implements OnInit {
   gameScreenshots: any;
   gameScreenshotsUrls: string[] = [];
   gameCoverUrl?: string;
+  gameGenres: any;
+  gamePlatforms: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,9 +24,9 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     var gameId = this.route.snapshot.params['id'];
 
-    // this.getGameById(gameId);
-    // this.getGameScreenshotsByGameId(gameId);
-    // this.getCoverByGameId(gameId);
+    this.getGameById(gameId);
+    this.getGameScreenshotsByGameId(gameId);
+    this.getCoverByGameId(gameId);
   }
 
   getGameById(gameId: number){
@@ -32,6 +34,8 @@ export class GameComponent implements OnInit {
       next: (res: any) => {
         if(res){
           this.game = res;
+          this.getGameGenres();
+          this.getGamePlatforms();
         }
       },
       error: (err: any) => {
@@ -68,11 +72,51 @@ export class GameComponent implements OnInit {
     })
   }
 
+  getGameGenres() {
+    this.gamesService.getGameGenres(this.game.genres).subscribe({
+      next: (genres: any) => {
+        this.gameGenres = genres.filter((g: any) => g.name);
+      },
+      error: (err: any) => {
+        console.error(err);
+      }
+    })
+  }
+
+  getGamePlatforms() {
+    this.gamesService.getGamePlatforms(this.game.platforms).subscribe({
+      next: (platforms: any) => {
+        this.gamePlatforms = platforms.filter((p: any) => p.name);
+      },
+      error: (err: any) => {
+        console.error(err);
+      }
+    })
+  }
+
   getBanerImage(): string {
-    return this.gameScreenshotsUrls[3].replace('t_thumb', 't_screenshot_big');
+    return this.gameScreenshotsUrls[0].replace('t_thumb', 't_screenshot_big');
   }
 
   getCover(): string {
     return this.gameCoverUrl?.replace('t_thumb', 't_cover_big')!;
+  }
+
+  getGenres(): string {
+    var mappedArray = this.gameGenres.map((g: any) => g.name);
+    return `${mappedArray.toString().replaceAll(',', ', ')}.`;
+  }
+
+  getPlatforms(): string {
+    var mappedArray = this.gamePlatforms.map((p: any) => p.name);
+    return `${mappedArray.toString().replaceAll(',', ', ')}.`;
+  }
+
+  ratingValidity(rating: any): number{
+    return rating == null ? 1 : (rating == 0 ? 1 : rating);
+  }
+
+  ratingCountValidity(ratingCount: any): string {
+    return ratingCount == null ? "N/A" : (ratingCount == 0 ? 1 : ratingCount);
   }
 }

@@ -1,0 +1,23 @@
+<h2 style="text-align:center">Game screenshots</h2>
+
+<div class="container" *ngIf="gameScreenshotsUrls">
+  <div class="mySlides" *ngFor="let sc of gameScreenshotsUrls; let i = index" [attr.data-index]="i" [ngStyle]="{'display': slidesStyle[i]}">
+    <div class="numbertext">{{i+1}} / {{gameScreenshotsUrls.length}}</div>
+    <img [src]="getScreenshotByIdFromList(i)" alt="..." class="w-100" style="max-height:100%;"/>
+  </div>
+
+  <a class="prev" (click)="plusSlides(-1)">❮</a>
+  <a class="next" (click)="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="container gameOnScrollable">
+    <div class="row text-center">
+      <div class="col-2" style="max-height: 30vh;" *ngFor="let sc of gameScreenshotsUrls; let i = index" [attr.data-index]="i" (click)="currentSlide(i)">
+        <img [src]="getScreenshotByIdFromList(i)" alt="..." class="demo cursor" style="max-height:100%; max-width:100%;"/>
+      </div>
+    </div>
+  </div>
+</div>
