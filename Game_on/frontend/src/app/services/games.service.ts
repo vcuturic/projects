@@ -54,4 +54,20 @@ export class GamesService {
     var cover = gameCovers.filter((gc:any) => gc.id == coverId)[0];
     return cover.url.replace('t_thumb', "t_cover_big");
   }
+
+  getFavoriteGamesByUserId(): Observable<any> {
+    return this.http.get<any>(`${this.url}/favorites`);
+  }
+
+  addFavoriteGame(gameId: number): Observable<any> {
+    var params = new HttpParams()
+    .set("gameId", gameId);
+    return this.http.post<any>(`${this.url}/favorites`, null, {params});
+  }
+
+  deleteGameFromFavorites(gameId: number): Observable<any> {
+    var params = new HttpParams()
+    .set("gameId", gameId);
+    return this.http.delete<any>(`${this.url}/favorites`, {params});
+  }
 }

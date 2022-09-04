@@ -15,6 +15,7 @@ export class GameComponent implements OnInit {
   gameCoverUrl?: string;
   gameGenres: any;
   gamePlatforms: any;
+  gameInFavorites: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -118,5 +119,23 @@ export class GameComponent implements OnInit {
 
   ratingCountValidity(ratingCount: any): string {
     return ratingCount == null ? "N/A" : (ratingCount == 0 ? 1 : ratingCount);
+  }
+
+  addGameToFavorites(gameId: number) {
+    this.gameInFavorites = true;
+    this.gamesService.addFavoriteGame(gameId).subscribe({
+      next: (res: any) => {
+        if(res){
+          console.log("Successfully added game to favorites.");
+        }
+      },
+      error: (err: any) => {
+        console.error(err);
+      }
+    })
+  }
+
+  removeGameFromFavorites(gameId: number) {
+    this.gameInFavorites = false;
   }
 }

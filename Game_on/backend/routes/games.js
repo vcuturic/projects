@@ -1,5 +1,4 @@
 var express = require('express')
-var jwt = require('express-jwt')
 var Game = require('../models/game')
 var passport = require('./config/passport')
 const igdb = require('igdb-api-node').default;
@@ -130,26 +129,32 @@ router.post("/platforms",
     }
 )
 
-router.post("/",
+router.get("/favorites",
     passport.authenticate('jwt', {session:false}),
-    (req, res)=>{
-        res.send(Game.sacuvaj(req.body))
+    async (req, res)=>{
+        var favoriteGames = await Game.find({userId: req.user._id});
+        res.status(200).send(favoriteGames);
     }
 )
 
-router.post("/",
+router.post("/favorites",
     passport.authenticate('jwt', {session:false}),
     (req, res)=>{
-        res.send(Game.sacuvaj(req.body))
+        const queryObject = url.parse(req.url, true).query;
+        var game = {gameId: queryObject.gameId, userId: req.user._id};
+        res.send(Game.save(game))
     }
 )
+
+router.delete("/favorites", 
+    async (req, res) => {
+        const queryObject = url.parse(req.url, true).query;
+        res.status(200).send(await Game.deleteOne({gameId: queryObject.gameId}));
+    }
+);
 
 router.put("/", (req, res)=>{
     res.send("Update existing game.")
-})
-
-router.delete("/", (req, res)=>{
-    res.send("Delete game.")
 })
 
 module.exports = router

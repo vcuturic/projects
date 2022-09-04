@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { FavoriteGamesComponent } from './home/components/favorite-games/favorite-games.component';
 
 const routes: Routes = [
   { path: '',
@@ -17,6 +18,7 @@ const routes: Routes = [
     children: [
       { path: 'games', component: GamesComponent, canActivate: [AuthGuardService],},
       { path: 'games/game/:id', component: GameComponent, canActivate: [AuthGuardService],},
+      { path: 'favorites', component: FavoriteGamesComponent, canActivate: [AuthGuardService],},
     ]
   },
   { path: 'users', component: UsersComponent,canActivate: [AuthGuardService],},

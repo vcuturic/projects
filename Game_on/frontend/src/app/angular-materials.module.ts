@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 const materialModules = [
   MatCardModule,
@@ -21,7 +22,8 @@ const materialModules = [
   MatInputModule,
   MatTabsModule,
   MatProgressSpinnerModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatTableModule
 ];
 
 @NgModule({

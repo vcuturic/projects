@@ -11,6 +11,21 @@
         <img mat-card-image [src]="getCover()" alt="..." class="w-100 position-absolute top-0 start-50 translate-middle gamecover"/>
       </div>
       <div style="height: 10rem;"></div>
+      <div>
+        <div *ngIf="gameInFavorites; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>
+          <button mat-button class="gameOnRoute w-100" (click)="removeGameFromFavorites(game.id)">
+            <mat-icon style="color: #FFD700;">star</mat-icon>
+            <span class="ms-2 text-light">Remove game from favorites</span>
+          </button>
+        </ng-template>
+        <ng-template #elseBlock>
+          <button mat-button class="gameOnRoute w-100" (click)="addGameToFavorites(game.id)">
+            <mat-icon>star</mat-icon>
+            <span class="ms-2 text-light">Add game to favorites</span>
+          </button>
+        </ng-template>
+      </div>
     </div>
     <div class=" w-100">
       <mat-tab-group mat-align-tabs="start">

@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private cookie: CookieService,
     private router: Router,
-    private aithService: AuthService
+    private authService: AuthService
     ) { }
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   login()
   {
-    this.aithService.login(this.loginForm.value).subscribe(token=>{
+    this.authService.login(this.loginForm.value).subscribe(token=>{
       this.cookie.set("token", token);
       this.router.navigate(['/games'])
     })
