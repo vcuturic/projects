@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{37A1D3EB-5771-4B2F-B547-393785B5849B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularInterceptor.API", "AngularInterceptor.API\AngularInterceptor.API.csproj", "{FAB65426-BAFD-45C1-A573-5EFB025B5300}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAB65426-BAFD-45C1-A573-5EFB025B5300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAB65426-BAFD-45C1-A573-5EFB025B5300}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAB65426-BAFD-45C1-A573-5EFB025B5300}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAB65426-BAFD-45C1-A573-5EFB025B5300}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FAB65426-BAFD-45C1-A573-5EFB025B5300} = {37A1D3EB-5771-4B2F-B547-393785B5849B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41CE7FC4-5BE3-4939-BE65-7E21AD2DD455}
+	EndGlobalSection
+EndGlobal
