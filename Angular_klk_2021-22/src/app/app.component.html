@@ -1,0 +1,15 @@
+<router-outlet></router-outlet>
+
+<br>
+<button (click)="navigateToHomePage()">Pocetna</button>
+
+<div *ngIf="!authService.isAuthenticated()">
+  <button (click)="navigateToLoginPage()">Login</button>
+  <button (click)="navigateToRegisterPage()">Register</button>
+</div>
+
+<div *ngIf="authService.isAuthenticated()">
+  <button (click)="navigateToProfilePage()">Profil strana</button>
+  <button (click)="odjava()">Odjavi se</button>
+</div>
+

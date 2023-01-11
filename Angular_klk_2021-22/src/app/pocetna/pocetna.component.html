@@ -1,0 +1,19 @@
+<p>pocetna works!</p>
+<div *ngIf="movies">
+  <h2>Filmovi</h2>
+  <div *ngFor="let movie of movies; let i = index;" (click)="selectMovie(movie)">
+    {{movie.title}}
+    <div *ngIf="authService.isAuthenticated()" style="padding: 10px;">
+      <label >Oceni film</label> <br>
+      <input type="number" [(ngModel)]="movieRatings[i]"> <br>
+      <button (click)="rateMovie(movie, i)">Oceni</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="actors">
+  <h2>Glumci</h2>
+  <div *ngFor="let actor of actors">
+    {{actor.name}}
+  </div>
+</div>

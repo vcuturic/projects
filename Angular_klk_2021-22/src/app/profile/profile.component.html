@@ -1,0 +1,8 @@
+<p>profile works!</p>
+<div *ngIf="myRatedMovies">
+<h2>My rated movies</h2>
+<div *ngFor="let mrm of myRatedMovies">
+  {{mrm.title}} {{findMeanRating(mrm)}}
+</div>
+
+</div>
